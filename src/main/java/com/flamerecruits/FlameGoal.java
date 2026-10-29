@@ -57,6 +57,10 @@ public class FlameGoal extends Goal {
         if (target == null || !target.isAlive() || recruit.getState() == 3 || recruit.needsToGetFood()) {
             return false;
         }
+        if (Math.abs(target.getY() - recruit.getY()) > 8.0D
+                || (target.getY() < recruit.getY() - 2.5D && !recruit.getSensing().hasLineOfSight(target))) {
+            return false;
+        }
         return ForgeRegistries.ENTITY_TYPES.containsKey(FIRE_ID) && hasFlamethrower();
     }
 
