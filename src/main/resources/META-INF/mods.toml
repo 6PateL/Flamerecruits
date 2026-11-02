@@ -35,3 +35,10 @@ description='''Recruits can hold and fire the Flamethrower from From Another Wor
     versionRange="[1.15.2,)"
     ordering="AFTER"
     side="BOTH"
+
+[[dependencies.flamerecruits]]
+    modId="hostile_civilization"
+    mandatory=false
+    versionRange="[0,)"
+    ordering="AFTER"
+    side="BOTH"

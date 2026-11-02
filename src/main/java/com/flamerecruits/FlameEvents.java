@@ -24,6 +24,7 @@ public class FlameEvents {
             }
         }
         recruit.goalSelector.addGoal(1, new FlameGoal(recruit));
+        recruit.goalSelector.addGoal(0, new BazookaGoal(recruit));
     }
 
     private static final ResourceLocation ITEM_ID = new ResourceLocation("fromanotherworld", "flamethrower_mk_1");
