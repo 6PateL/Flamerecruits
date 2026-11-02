@@ -10,6 +10,10 @@ public class FlameConfig {
     public static final ForgeConfigSpec.IntValue BURST_TICKS;
     public static final ForgeConfigSpec.IntValue PAUSE_TICKS;
     public static final ForgeConfigSpec.BooleanValue AVOID_FRIENDLY_FIRE;
+    public static final ForgeConfigSpec.IntValue DURABILITY;
+    public static final ForgeConfigSpec.IntValue PLAYER_TICKS_PER_DAMAGE;
+    public static final ForgeConfigSpec.IntValue RECRUIT_SHOTS_PER_DAMAGE;
+    public static final ForgeConfigSpec.IntValue REPAIR_PER_DIAMOND;
 
     static {
         ForgeConfigSpec.Builder b = new ForgeConfigSpec.Builder();
@@ -23,6 +27,14 @@ public class FlameConfig {
                 .defineInRange("pauseTicks", 20, 0, 600);
         AVOID_FRIENDLY_FIRE = b.comment("Do not fire if the owner or another recruit of the same owner stands in the line of fire.")
                 .define("avoidFriendlyFire", true);
+        DURABILITY = b.comment("Max durability of the flamethrower (0 = unlimited, as in the original mod). Needs a restart.")
+                .defineInRange("durability", 400, 0, 100000);
+        PLAYER_TICKS_PER_DAMAGE = b.comment("Ticks of continuous fire by a player that cost 1 durability.")
+                .defineInRange("playerTicksPerDamage", 6, 1, 200);
+        RECRUIT_SHOTS_PER_DAMAGE = b.comment("Flame puffs fired by a recruit that cost 1 durability.")
+                .defineInRange("recruitShotsPerDamage", 3, 1, 200);
+        REPAIR_PER_DIAMOND = b.comment("Durability restored by one diamond in an anvil.")
+                .defineInRange("repairPerDiamond", 100, 1, 100000);
         SPEC = b.build();
     }
 }

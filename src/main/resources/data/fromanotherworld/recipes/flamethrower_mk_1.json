@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "  a",
+    "bcc",
+    "c c"
+  ],
+  "key": {
+    "a": {"item": "minecraft:blaze_powder"},
+    "b": {"item": "minecraft:dispenser"},
+    "c": {"item": "minecraft:diamond"}
+  },
+  "result": {"item": "fromanotherworld:flamethrower_mk_1"},
+  "show_notification": true
+}

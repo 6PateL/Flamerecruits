@@ -32,6 +32,7 @@ public class FlameGoal extends Goal {
     private int phaseTicks = 0;
     private boolean firing = true;
     private int repath = 0;
+    private int shots = 0;
 
     public FlameGoal(AbstractRecruitEntity recruit) {
         this.recruit = recruit;
@@ -149,6 +150,13 @@ public class FlameGoal extends Goal {
         level.playSound(null, recruit.getX(), recruit.getY(), recruit.getZ(), SoundEvents.FIRECHARGE_USE,
                 SoundSource.NEUTRAL, 0.5F, 0.4F / (level.random.nextFloat() * 0.4F + 0.8F));
         recruit.swing(InteractionHand.MAIN_HAND);
+        if (FlameConfig.DURABILITY.get() > 0 && ++shots >= FlameConfig.RECRUIT_SHOTS_PER_DAMAGE.get()) {
+            shots = 0;
+            ItemStack held = recruit.getMainHandItem();
+            if (isFlamethrower(held)) {
+                held.hurtAndBreak(1, recruit, r -> r.broadcastBreakEvent(InteractionHand.MAIN_HAND));
+            }
+        }
     }
 
     private boolean friendlyInLine(LivingEntity target) {
