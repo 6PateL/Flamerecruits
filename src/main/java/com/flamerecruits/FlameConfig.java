@@ -19,6 +19,9 @@ public class FlameConfig {
     public static final ForgeConfigSpec.IntValue BAZOOKA_COOLDOWN_TICKS;
     public static final ForgeConfigSpec.DoubleValue BAZOOKA_MIN_RANGE;
     public static final ForgeConfigSpec.DoubleValue BAZOOKA_MAX_RANGE;
+    public static final ForgeConfigSpec.IntValue MOLOTOV_COOLDOWN_TICKS;
+    public static final ForgeConfigSpec.DoubleValue MOLOTOV_MIN_RANGE;
+    public static final ForgeConfigSpec.DoubleValue MOLOTOV_MAX_RANGE;
 
     static {
         ForgeConfigSpec.Builder b = new ForgeConfigSpec.Builder();
@@ -50,6 +53,12 @@ public class FlameConfig {
                 .defineInRange("bazookaMinRange", 9.0D, 2.0D, 32.0D);
         BAZOOKA_MAX_RANGE = b.comment("Maximum firing distance for the bazooka (blocks).")
                 .defineInRange("bazookaMaxRange", 30.0D, 8.0D, 64.0D);
+        MOLOTOV_COOLDOWN_TICKS = b.comment("Ticks between two molotov throws by a recruit (the player's cooldown is 80).")
+                .defineInRange("molotovCooldownTicks", 100, 20, 6000);
+        MOLOTOV_MIN_RANGE = b.comment("A recruit holding a molotov will not throw at targets closer than this (blocks).")
+                .defineInRange("molotovMinRange", 5.0D, 2.0D, 32.0D);
+        MOLOTOV_MAX_RANGE = b.comment("Maximum throwing distance of a recruit's molotov (blocks).")
+                .defineInRange("molotovMaxRange", 22.0D, 8.0D, 48.0D);
         SPEC = b.build();
     }
 }

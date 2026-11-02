@@ -1,0 +1,44 @@
+{
+  "forge:conditions": [
+    {"type": "forge:mod_loaded", "modid": "create"},
+    {"type": "forge:mod_loaded", "modid": "hostile_civilization"}
+  ],
+  "type": "create:sequenced_assembly",
+  "ingredient": {"item": "minecraft:glass_bottle"},
+  "transitional_item": {"item": "create:incomplete_precision_mechanism"},
+  "sequence": [
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {"item": "create:incomplete_precision_mechanism"},
+        {"fluid": "minecraft:lava", "amount": 250}
+      ],
+      "results": [{"item": "create:incomplete_precision_mechanism"}]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {"item": "create:incomplete_precision_mechanism"},
+        {"item": "minecraft:gunpowder"}
+      ],
+      "results": [{"item": "create:incomplete_precision_mechanism"}]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {"item": "create:incomplete_precision_mechanism"},
+        {"item": "minecraft:paper"}
+      ],
+      "results": [{"item": "create:incomplete_precision_mechanism"}]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [{"item": "create:incomplete_precision_mechanism"}],
+      "results": [{"item": "create:incomplete_precision_mechanism"}]
+    }
+  ],
+  "results": [
+    {"item": "hostile_civilization:molotov", "count": 1}
+  ],
+  "loops": 2
+}

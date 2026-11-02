@@ -24,6 +24,7 @@ public class FlameRecruits {
     /** Робимо вогнемет скінченним: задаємо максимальну міцність предмету (поле Item.maxDamage). */
     private void setup(FMLCommonSetupEvent event) {
         int dur = FlameConfig.DURABILITY.get();
+        event.enqueueWork(MolotovDispenser::register);
         if (dur <= 0) {
             return;
         }

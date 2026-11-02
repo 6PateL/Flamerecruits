@@ -51,26 +51,22 @@ public class BazookaGoal extends Goal {
         if (target == null || !target.isAlive() || recruit.getState() == 3 || recruit.needsToGetFood()) {
             return false;
         }
-        if (!isBazooka(recruit.getMainHandItem()) && !hasInInventory()) {
+        // працює ТІЛЬКИ з базукою в руках: інакше дальність 9-30 м узагалі не діє
+        if (!isBazooka(recruit.getMainHandItem())) {
             return false;
         }
         double d = recruit.distanceTo(target);
         if (d < FlameConfig.BAZOOKA_MIN_RANGE.get() || d > FlameConfig.BAZOOKA_MAX_RANGE.get()
-                || !recruit.getSensing().hasLineOfSight(target)) {
+                || !Aim.clear(recruit, target)) {
             return false;
         }
         return !friendsNear(target);
     }
 
-    private boolean hasInInventory() {
-        recruit.switchMainHandItem(BazookaGoal::isBazooka);
-        return isBazooka(recruit.getMainHandItem());
-    }
-
     @Override
     public boolean canContinueToUse() {
         LivingEntity t = recruit.getTarget();
-        return windup < WINDUP && t != null && t.isAlive() && recruit.getSensing().hasLineOfSight(t);
+        return windup < WINDUP && t != null && t.isAlive() && isBazooka(recruit.getMainHandItem()) && Aim.clear(recruit, t);
     }
 
     @Override
@@ -85,7 +81,7 @@ public class BazookaGoal extends Goal {
             return;
         }
         recruit.getLookControl().setLookAt(target, 60.0F, 60.0F);
-        if (++windup >= WINDUP && !friendsNear(target)) {
+        if (++windup >= WINDUP && isBazooka(recruit.getMainHandItem()) && Aim.clear(recruit, target) && !friendsNear(target)) {
             fire(target);
             readyAt = recruit.level().getGameTime() + FlameConfig.BAZOOKA_COOLDOWN_TICKS.get();
         }
