@@ -26,6 +26,15 @@ public class FlameRecruits {
     private void setup(FMLCommonSetupEvent event) {
         int dur = FlameConfig.DURABILITY.get();
         event.enqueueWork(MolotovDispenser::register);
+        int charges = FlameConfig.BAZOOKA_CHARGES.get();
+        if (charges > 0) {
+            event.enqueueWork(() -> {
+                Item bz = ForgeRegistries.ITEMS.getValue(new ResourceLocation("hostile_civilization", "bazooka"));
+                if (bz != null && bz != net.minecraft.world.item.Items.AIR) {
+                    ObfuscationReflectionHelper.setPrivateValue(Item.class, bz, charges, "f_41371_");
+                }
+            });
+        }
         if (dur <= 0) {
             return;
         }

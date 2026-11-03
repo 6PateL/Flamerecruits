@@ -7,6 +7,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraftforge.event.AnvilUpdateEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -44,6 +45,30 @@ public class FlameEvents {
             if (stack.isEmpty()) {
                 player.stopUsingItem();
             }
+        }
+    }
+
+    private static final ResourceLocation BAZOOKA_ID = new ResourceLocation("hostile_civilization", "bazooka");
+
+    /** Постріл гравця з базуки забирає 1 заряд (міцність); без перезарядки не рахується. */
+    @SubscribeEvent
+    public void onBazooka(PlayerInteractEvent.RightClickItem event) {
+        ItemStack stack = event.getItemStack();
+        if (!(event.getEntity() instanceof Player player) || player.level().isClientSide
+                || FlameConfig.BAZOOKA_CHARGES.get() <= 0
+                || !ForgeRegistries.ITEMS.getKey(stack.getItem()).equals(BAZOOKA_ID)
+                || player.getCooldowns().isOnCooldown(stack.getItem())) {
+            return;
+        }
+        stack.hurtAndBreak(1, player, p -> p.broadcastBreakEvent(event.getHand()));
+    }
+
+    /** Базуку полагодити неможливо: ковадло відмовляє. */
+    @SubscribeEvent
+    public void onAnvilBazooka(AnvilUpdateEvent event) {
+        if (FlameConfig.BAZOOKA_CHARGES.get() > 0
+                && ForgeRegistries.ITEMS.getKey(event.getLeft().getItem()).equals(BAZOOKA_ID)) {
+            event.setCanceled(true);
         }
     }
 

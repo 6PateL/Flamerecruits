@@ -96,6 +96,10 @@ public class Throwers {
                 throwMolotov(r, target);
             }
             r.swing(hand);
+            if (bazooka && FlameConfig.BAZOOKA_CHARGES.get() > 0) {
+                ItemStack st = r.getItemInHand(hand);
+                st.hurtAndBreak(1, r, e -> e.broadcastBreakEvent(hand));
+            }
             r.getPersistentData().putLong(T_READY, r.level().getGameTime()
                     + (bazooka ? FlameConfig.BAZOOKA_COOLDOWN_TICKS.get() : FlameConfig.MOLOTOV_COOLDOWN_TICKS.get()));
         }

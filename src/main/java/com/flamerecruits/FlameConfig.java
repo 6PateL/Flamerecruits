@@ -11,6 +11,7 @@ public class FlameConfig {
     public static final ForgeConfigSpec.IntValue PAUSE_TICKS;
     public static final ForgeConfigSpec.BooleanValue AVOID_FRIENDLY_FIRE;
     public static final ForgeConfigSpec.IntValue DURABILITY;
+    public static final ForgeConfigSpec.IntValue BAZOOKA_CHARGES;
     public static final ForgeConfigSpec.IntValue PLAYER_TICKS_PER_DAMAGE;
     public static final ForgeConfigSpec.IntValue RECRUIT_SHOTS_PER_DAMAGE;
     public static final ForgeConfigSpec.IntValue REPAIR_PER_DIAMOND;
@@ -35,6 +36,8 @@ public class FlameConfig {
                 .defineInRange("pauseTicks", 20, 0, 600);
         AVOID_FRIENDLY_FIRE = b.comment("Do not fire if the owner or another recruit of the same owner stands in the line of fire.")
                 .define("avoidFriendlyFire", true);
+        BAZOOKA_CHARGES = b.comment("Number of shots a bazooka has before it breaks (0 = unlimited). It cannot be repaired. Needs a restart.")
+                .defineInRange("bazookaCharges", 5, 0, 1000);
         DURABILITY = b.comment("Max durability of the flamethrower (0 = unlimited, as in the original mod). Needs a restart.")
                 .defineInRange("durability", 200, 0, 100000);
         PLAYER_TICKS_PER_DAMAGE = b.comment("Ticks of continuous fire by a player that cost 1 durability.")

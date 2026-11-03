@@ -24,20 +24,7 @@
           "item": "create:incomplete_precision_mechanism"
         },
         {
-          "item": "create:brass_sheet"
-        }
-      ],
-      "results": [
-        {
-          "item": "create:incomplete_precision_mechanism"
-        }
-      ]
-    },
-    {
-      "type": "create:pressing",
-      "ingredients": [
-        {
-          "item": "create:incomplete_precision_mechanism"
+          "item": "create:brass_block"
         }
       ],
       "results": [
@@ -53,52 +40,7 @@
           "item": "create:incomplete_precision_mechanism"
         },
         {
-          "item": "create:andesite_alloy"
-        }
-      ],
-      "results": [
-        {
-          "item": "create:incomplete_precision_mechanism"
-        }
-      ]
-    },
-    {
-      "type": "create:deploying",
-      "ingredients": [
-        {
-          "item": "create:incomplete_precision_mechanism"
-        },
-        {
-          "item": "create:shaft"
-        }
-      ],
-      "results": [
-        {
-          "item": "create:incomplete_precision_mechanism"
-        }
-      ]
-    },
-    {
-      "type": "create:pressing",
-      "ingredients": [
-        {
-          "item": "create:incomplete_precision_mechanism"
-        }
-      ],
-      "results": [
-        {
-          "item": "create:incomplete_precision_mechanism"
-        }
-      ]
-    },
-    {
-      "type": "create:deploying",
-      "ingredients": [
-        {
-          "item": "create:incomplete_precision_mechanism"
-        },
-        {
-          "item": "create:electron_tube"
+          "item": "create:andesite_alloy_block"
         }
       ],
       "results": [
@@ -124,19 +66,6 @@
       ]
     },
     {
-      "type": "create:pressing",
-      "ingredients": [
-        {
-          "item": "create:incomplete_precision_mechanism"
-        }
-      ],
-      "results": [
-        {
-          "item": "create:incomplete_precision_mechanism"
-        }
-      ]
-    },
-    {
       "type": "create:deploying",
       "ingredients": [
         {
@@ -144,22 +73,6 @@
         },
         {
           "item": "minecraft:tnt"
-        }
-      ],
-      "results": [
-        {
-          "item": "create:incomplete_precision_mechanism"
-        }
-      ]
-    },
-    {
-      "type": "create:deploying",
-      "ingredients": [
-        {
-          "item": "create:incomplete_precision_mechanism"
-        },
-        {
-          "item": "minecraft:fire_charge"
         }
       ],
       "results": [
@@ -178,67 +91,6 @@
           "fluid": "minecraft:lava",
           "amount": 500,
           "nbt": {}
-        }
-      ],
-      "results": [
-        {
-          "item": "create:incomplete_precision_mechanism"
-        }
-      ]
-    },
-    {
-      "type": "create:deploying",
-      "ingredients": [
-        {
-          "item": "create:incomplete_precision_mechanism"
-        },
-        {
-          "item": "create:iron_sheet"
-        }
-      ],
-      "results": [
-        {
-          "item": "create:incomplete_precision_mechanism"
-        }
-      ]
-    },
-    {
-      "type": "create:pressing",
-      "ingredients": [
-        {
-          "item": "create:incomplete_precision_mechanism"
-        }
-      ],
-      "results": [
-        {
-          "item": "create:incomplete_precision_mechanism"
-        }
-      ]
-    },
-    {
-      "type": "create:deploying",
-      "ingredients": [
-        {
-          "item": "create:incomplete_precision_mechanism"
-        },
-        {
-          "item": "create:large_cogwheel"
-        }
-      ],
-      "results": [
-        {
-          "item": "create:incomplete_precision_mechanism"
-        }
-      ]
-    },
-    {
-      "type": "create:deploying",
-      "ingredients": [
-        {
-          "item": "create:incomplete_precision_mechanism"
-        },
-        {
-          "item": "create:brass_casing"
         }
       ],
       "results": [
@@ -267,5 +119,5 @@
       "count": 1
     }
   ],
-  "loops": 3
+  "loops": 2
 }
