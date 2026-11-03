@@ -48,8 +48,7 @@ public class FlameGoal extends Goal {
         if (isFlamethrower(recruit.getMainHandItem())) {
             return true;
         }
-        recruit.switchMainHandItem(FlameGoal::isFlamethrower);
-        return isFlamethrower(recruit.getMainHandItem());
+        return false;
     }
 
     @Override

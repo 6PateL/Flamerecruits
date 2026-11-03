@@ -18,6 +18,7 @@ public class FlameRecruits {
     public FlameRecruits() {
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, FlameConfig.SPEC);
         MinecraftForge.EVENT_BUS.register(new FlameEvents());
+        MinecraftForge.EVENT_BUS.register(new Throwers());
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
     }
 

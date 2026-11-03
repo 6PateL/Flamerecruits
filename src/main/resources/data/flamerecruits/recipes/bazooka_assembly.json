@@ -1,0 +1,20 @@
+{
+  "forge:conditions": [
+    {"type": "forge:mod_loaded", "modid": "create"},
+    {"type": "forge:mod_loaded", "modid": "hostile_civilization"}
+  ],
+  "type": "create:sequenced_assembly",
+  "ingredient": {"item": "create:brass_ingot"},
+  "transitionalItem": {"item": "create:incomplete_precision_mechanism"},
+  "sequence": [
+    {"type": "create:deploying", "ingredients": [{"item": "create:incomplete_precision_mechanism"}, {"item": "create:iron_sheet"}], "results": [{"item": "create:incomplete_precision_mechanism"}]},
+    {"type": "create:pressing", "ingredients": [{"item": "create:incomplete_precision_mechanism"}], "results": [{"item": "create:incomplete_precision_mechanism"}]},
+    {"type": "create:deploying", "ingredients": [{"item": "create:incomplete_precision_mechanism"}, {"item": "minecraft:tnt"}], "results": [{"item": "create:incomplete_precision_mechanism"}]},
+    {"type": "create:deploying", "ingredients": [{"item": "create:incomplete_precision_mechanism"}, {"item": "minecraft:fire_charge"}], "results": [{"item": "create:incomplete_precision_mechanism"}]},
+    {"type": "create:filling", "ingredients": [{"item": "create:incomplete_precision_mechanism"}, {"fluid": "minecraft:lava", "amount": 500, "nbt": {}}], "results": [{"item": "create:incomplete_precision_mechanism"}]},
+    {"type": "create:deploying", "ingredients": [{"item": "create:incomplete_precision_mechanism"}, {"item": "create:precision_mechanism"}], "results": [{"item": "create:incomplete_precision_mechanism"}]},
+    {"type": "create:pressing", "ingredients": [{"item": "create:incomplete_precision_mechanism"}], "results": [{"item": "create:incomplete_precision_mechanism"}]}
+  ],
+  "results": [{"item": "hostile_civilization:bazooka", "count": 1}],
+  "loops": 3
+}
