@@ -54,7 +54,8 @@ public class FlameEvents {
     @SubscribeEvent
     public void onBazooka(PlayerInteractEvent.RightClickItem event) {
         ItemStack stack = event.getItemStack();
-        if (!(event.getEntity() instanceof Player player) || player.level().isClientSide
+        Player player = event.getEntity();
+        if (player.level().isClientSide
                 || FlameConfig.BAZOOKA_CHARGES.get() <= 0
                 || !ForgeRegistries.ITEMS.getKey(stack.getItem()).equals(BAZOOKA_ID)
                 || player.getCooldowns().isOnCooldown(stack.getItem())) {
